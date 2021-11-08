@@ -30,18 +30,18 @@ const createTableHead = (() => {
   table.appendChild(tr);
 })();
 
-let sumRegion = 0;
-let sumModel = 0;
-let sumSales = 0;
+let sumUS = 0;
+let sumEU = 0;
+let sumCA = 0;
 const CalculateSum = (() => {
   for (let obj in data) {
     //   console.log(data[obj]);
     if (data[obj].region === "US") {
-      sumRegion += data[obj].sales;
+      sumUS += data[obj].sales;
     } else if (data[obj].region === "EU") {
-      sumModel += data[obj].sales;
+      sumEU += data[obj].sales;
     } else if (data[obj].region === "CA") {
-      sumSales += data[obj].sales;
+      sumCA += data[obj].sales;
     }
   }
 })();
@@ -58,7 +58,7 @@ data.forEach((element) => {
     td.innerHTML = "sum";
     tr.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = sumRegion;
+    td.innerHTML = sumUS;
     tr.appendChild(td);
     table.appendChild(tr);
   } else if (element.region === "EU" && element.model === "A") {
@@ -69,7 +69,7 @@ data.forEach((element) => {
     td.innerHTML = "sum";
     tr.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = sumRegion;
+    td.innerHTML = sumEU;
     tr.appendChild(td);
     table.appendChild(tr);
   } else if (element.region === "CA" && element.model === "A") {
@@ -80,7 +80,7 @@ data.forEach((element) => {
     td.innerHTML = "sum";
     tr.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = sumRegion;
+    td.innerHTML = sumCA;
     tr.appendChild(td);
     table.appendChild(tr);
   }
